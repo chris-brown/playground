@@ -1,6 +1,6 @@
 sudo: required
 language: csharp
-solution: src/web.sln
+solution: src/playground.sln
 services:
   - docker
 matrix:
