@@ -2,18 +2,18 @@ sudo: required
 language: csharp
 solution: src/playground.sln
 services:
-  - docker
+    - docker
 matrix:
-  include:
-    - os: linux
-      dist: trusty
-      sudo: required
-      dotnet: 1.0.4
-      mono: none
-      env: DOTNETCORE=1
+    include:
+        - os: linux
+          dist: trusty
+          sudo: required
+          dotnet: 1.0.4
+          mono: none
+          env: DOTNETCORE=1
 script:
-  - chmod +x ./deploy-envs.sh
-  - chmod +x ./scripts/build.sh
-  - chmod +x ./scripts/deploy.sh
-  - cd scripts && ./build.sh
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then ./deploy.sh; fi
+    - chmod +x ./deploy-envs.sh
+    - chmod +x ./scripts/build.sh
+    - chmod +x ./scripts/deploy.sh
+    - cd scripts && ./build.sh
+    #- if [ "$TRAVIS_BRANCH" == "master" ]; then ./deploy.sh; fi # no longer deploying to ECS
